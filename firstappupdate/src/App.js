@@ -1,13 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import tasks from'./sample/task.json';
+import Tasks from './components/Tasks';
+console.log(tasks);
+class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-      <div>Hello World</div>
-    </div>
-  );
+  state={
+    tasks: tasks
+  }
+
+  render() {
+    return (<div>
+      <Tasks tasks={this.state.tasks}/>
+    </div>)
+  }
 }
 
 export default App;
