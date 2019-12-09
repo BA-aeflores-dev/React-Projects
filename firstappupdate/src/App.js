@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import tasks from'./sample/task.json';
 import Tasks from './components/Tasks';
-console.log(tasks);
+//console.log(tasks);
 class App extends Component {
 
   state={

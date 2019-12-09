@@ -8,7 +8,7 @@
         "id": 1,
         "title": "Task 2",
         "description": "This is the task 2",
-        "done": false
+        "done": true
     }, {
         "id": 2,
         "title": "Task 3",
