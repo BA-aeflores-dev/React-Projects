@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import 'antd/dist/antd.css';
+import { Button } from 'antd';
+const ButtonGroup = Button.Group;
 
+console.log(Button);
 export default class Taskform extends Component {
     state = {
         title: '',
@@ -16,7 +20,7 @@ export default class Taskform extends Component {
     }
     render(){
         return(
-            <form onSubmit={ this.onSubmit }>
+            <form>
                 <input
                     type='text'
                     name='title'
@@ -33,12 +37,10 @@ export default class Taskform extends Component {
                 </textarea>
                 <br/>
                 <br/>
-                <input type="submit"/>
+                <ButtonGroup>
+                    <Button type="danger" onClick={ this.onSubmit } icon="cloud">Agregar</Button>
+                </ButtonGroup>
             </form>
         )
     }
-}
-
-Taskform.propTypes = {
-
 }
