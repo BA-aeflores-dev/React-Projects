@@ -49,14 +49,16 @@ class App extends Component {
         <Link to='./'>Home</Link>
         <br/>
         <Link to='./posts'>Posts</Link>
-        <Route exact path='/' render={ () => {
+        <br/>
+        <Link to='./form'>Form</Link>
+        <Route exact path='/posts' component={Posts}/>
+        <Route exact path='/form' render={ () => {
             return <div>
               <TaskForm addTask={ this.addTask }/>
               <Tasks tasks={this.state.tasks} deleteTask={this.deleteTask} checkDone={this.checkDone}/>
             </div>
           } }>
         </Route>
-        <Route exact path='/posts' component={Posts}/>
       </Router>
     </div>)
   }
