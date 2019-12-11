@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Axios from 'axios';
 
 export default class Posts extends Component {
 
@@ -7,8 +8,8 @@ export default class Posts extends Component {
     }
 
     async componentDidMount() {
-        const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-        const data = await res.json();
+        const res = await Axios.get('https://jsonplaceholder.typicode.com/posts');
+        const data = await res.data;
         this.setState({
             posts: data
         });

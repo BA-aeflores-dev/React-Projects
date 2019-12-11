@@ -3,7 +3,6 @@ import 'antd/dist/antd.css';
 import { Button } from 'antd';
 const ButtonGroup = Button.Group;
 
-console.log(Button);
 export default class Taskform extends Component {
     state = {
         title: '',
