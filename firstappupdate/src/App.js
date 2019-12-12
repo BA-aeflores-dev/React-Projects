@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import AppContext from './context/AppContext';
 
 import './App.css';
 
@@ -57,7 +58,9 @@ class App extends Component {
         <Route exact path='/form' render={ () => {
             return <div>
               <TaskForm addTask={ this.addTask }/>
-              <Tasks tasks={this.state.tasks} deleteTask={this.deleteTask} checkDone={this.checkDone}/>
+              <AppContext.Provider value={ { color: 'green', appFunctions:{ deleteTask: this.deleteTask , checkDone: this.checkDone } } }>
+                <Tasks tasks={this.state.tasks}/>
+              </AppContext.Provider>
             </div>
           } }>
         </Route>

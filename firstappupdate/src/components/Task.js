@@ -1,40 +1,44 @@
-import React, { Component } from 'react';
+import React, { useState, useContext } from 'react';
 import propTypes from 'prop-types';
+import AppContext from '../context/AppContext'
 
-class Task extends Component {
+const Task = props => {
 
-    styleCompleted() {
+    const [task, setTask] = useState(props.task);
+
+    function styleCompleted() {
         return {
             fontSize: '20px',
-            color: this.props.task.done ? 'gray' : 'black',
-            textDecoration: this.props.task.done ? 'line-through' : 'none'
+            color: task.done ? 'gray' : 'black',
+            textDecoration: task.done ? 'line-through' : 'none'
         }
-    }
+    };
 
-    render() {
-        let {task} = this.props;
-        let btnDelete = {
-            fontSize: '18px',
-            background: 'red',
-            color: '#fff',
-            border: 'none',
-            padding: '10px 15px',
-            borderRadius: '50%',
-            cursor: 'pointer'
-        };
-        return <p style={this.styleCompleted()}>
-            {task.title} -
-            {task.description} -
-            {task.done} -
-            {task.id}
-            <input type="checkBox" onClick={this.props.checkDone.bind(this,task.id)}/>
-            <button
-                style={ btnDelete }
-                onClick={ this.props.deleteTask.bind(this,task.id) }>
-                x
-            </button>
-        </p>
-    }
+    const { color, appFunctions, test}  = useContext(AppContext);
+    console.log(useContext(AppContext));
+
+    let btnDelete = {
+        fontSize: '18px',
+        background: 'red',
+        color: color, //'#fff',
+        border: 'none',
+        padding: '10px 15px',
+        borderRadius: '50%',
+        cursor: 'pointer'
+    };
+
+    return <p style={styleCompleted()}>
+        {task.title} -
+        {task.description} -
+        {task.done} -
+        {task.id}
+        <input type="checkBox" onClick={appFunctions.checkDone.bind(this,task.id)}/>
+        <button
+            style={ btnDelete }
+            onClick={ appFunctions.deleteTask.bind(this,task.id) }>
+            x
+        </button>
+    </p>
 }
 
 Task.propTypes = {

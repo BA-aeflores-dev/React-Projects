@@ -8,8 +8,9 @@ export default class Posts extends Component {
     }
 
     async componentDidMount() {
-        const res = await Axios.get('https://jsonplaceholder.typicode.com/posts');
-        const data = await res.data;
+        let data = [];
+        await Axios.get('https://jsonplaceholder.typicode.com/posts')
+            .then(resp => data = resp.data);
         this.setState({
             posts: data
         });
