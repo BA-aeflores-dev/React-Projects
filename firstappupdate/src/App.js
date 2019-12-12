@@ -10,7 +10,8 @@ import tasks from'./sample/task.json';
 import Tasks from './components/Tasks';
 import TaskForm from './components/TaskForm';
 import Posts from './components/Posts';
-import Counter from './components/Counter'
+import Counter from './components/Counter';
+import Sample from './components/Sample';
 
 class App extends Component {
 
@@ -50,10 +51,13 @@ class App extends Component {
       <Router>
         <Link to='./'>Home</Link>
         <br/>
+        <Link to='./Reducer'>Reducer</Link>
+        <br/>
         <Link to='./posts'>Posts</Link>
         <br/>
         <Link to='./form'>Form</Link>
         <Route exact path='/' component={Counter}/>
+        <Route exact path='/Reducer' component={Sample}/>
         <Route exact path='/posts' component={Posts}/>
         <Route exact path='/form' render={ () => {
             return <div>
