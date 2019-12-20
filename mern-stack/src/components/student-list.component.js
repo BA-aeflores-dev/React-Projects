@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function studentList() {
+const StudentList = () => {
     return (
         <div>
             <p>React Student List Component!</p>
         </div>
     )
 }
+export default StudentList;

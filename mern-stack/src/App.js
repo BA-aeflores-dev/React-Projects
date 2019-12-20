@@ -12,13 +12,13 @@ const { Header, Content , Footer } = Layout;
 
 function App() {
   return (
-    
+    <Router>
       <div className='App' style={{ height: '100%' }}>
         <Layout style={{ height: '100%' }}>
           <Header className='App-header'>
             <Menu theme="dark" mode="horizontal" style={{ lineHeight: '64px' }}>
               <Menu.Item key='1'>
-                <Link to="./create-student">
+                <Link to="./">
                   React MERN Stack App
                 </Link>
               </Menu.Item>
@@ -41,12 +41,12 @@ function App() {
           </Header>
           <Content style={{ padding: '0 50px' }}>
             <div style={{ background: '#fff', padding: 24, height: '100%' }}>
-              <Router>
+              <Switch>
                 <Route exact path='/' component={CreateStudent} />
                 <Route path='/create-student' component={CreateStudent} />
                 <Route path='/edit-student' component={EditStudent} />
                 <Route path='/student-list' component={StudentList} />
-              </Router>
+              </Switch>
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
@@ -54,7 +54,7 @@ function App() {
           </Footer>
         </Layout>
       </div>
-    
+    </Router>
   );
 }
 
